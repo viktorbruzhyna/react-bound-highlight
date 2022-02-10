@@ -1,0 +1,42 @@
+{
+  "name": "react-bound-highlight",
+  "version": "1.0.0",
+  "description": "React bound highlight component",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viktorbruzhyna/react-bound-highlight.git"
+  },
+  "author": "Viktor Bruzhyna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viktorbruzhyna/react-bound-highlight/issues"
+  },
+  "homepage": "https://github.com/viktorbruzhyna/react-bound-highlight#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.2",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.6.0",
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "style-loader": "^3.3.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "prop-types": "^15.8.1"
+  }
+}
