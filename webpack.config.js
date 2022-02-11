@@ -2,7 +2,7 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  entry: './src/BoundHighlight.jsx',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
@@ -33,6 +33,7 @@ module.exports = {
     ],
   },
   resolve: {
+    extensions: ['.js', '.jsx'],
     alias: {
       react: path.resolve('./node_modules/react'),
     },

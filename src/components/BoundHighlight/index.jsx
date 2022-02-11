@@ -23,7 +23,7 @@ const createGlobalState = () => ({
 // 4: one direction highlight ✅
 // 5: custom className for wrappers ✅
 
-function BoundHiglight({
+function BoundHighlight({
   id, children, shouldCurrentHighlight, shouldBoundHighlight, className,
 }) {
   const [highlight, setHighlight] = useState(false);
@@ -55,7 +55,7 @@ function BoundHiglight({
 
   return (
     <div
-      className={`BoundHiglight${className && ` ${className}`}`}
+      className={`BoundHighlight${className && ` ${className}`}`}
       style={{ outline: shouldHighlight && 'auto' }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -65,7 +65,7 @@ function BoundHiglight({
   );
 }
 
-BoundHiglight.propTypes = {
+BoundHighlight.propTypes = {
   id: PropTypes.string.isRequired,
   shouldCurrentHighlight: PropTypes.bool,
   shouldBoundHighlight: PropTypes.bool,
@@ -73,10 +73,10 @@ BoundHiglight.propTypes = {
   children: PropTypes.oneOf([PropTypes.node, PropTypes.string]).isRequired,
 };
 
-BoundHiglight.defaultProps = {
+BoundHighlight.defaultProps = {
   shouldCurrentHighlight: false,
   shouldBoundHighlight: true,
   className: '',
 };
 
-export default BoundHiglight;
+export default BoundHighlight;
