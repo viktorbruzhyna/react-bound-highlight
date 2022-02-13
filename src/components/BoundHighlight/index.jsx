@@ -21,8 +21,8 @@ const createGlobalState = () => ({
 function BoundHighlight({
   id,
   children,
-  currentHighlightOn,
-  oppositeHighlightOff,
+  currentHoverHighlightOn,
+  oppositeHoverHighlightOff,
   className,
   htmlTag: Tag,
 }) {
@@ -43,19 +43,19 @@ function BoundHighlight({
 
   const onMouseEnter = () => {
     setHighlight(true);
-    if (!oppositeHighlightOff) {
+    if (!oppositeHoverHighlightOff) {
       window.boundhighlight.setState(id, true);
     }
   };
 
   const onMouseLeave = () => {
     setHighlight(false);
-    if (!oppositeHighlightOff) {
+    if (!oppositeHoverHighlightOff) {
       window.boundhighlight.setState(id, false);
     }
   };
 
-  const currentHoverClassNameString = currentHighlightOn && highlight ? ` ${className}--currentHover` : '';
+  const currentHoverClassNameString = currentHoverHighlightOn && highlight ? ` ${className}--currentHover` : '';
   const boundHoverClassNameString = boundHighlight && !highlight ? ` ${className}--boundHover` : '';
 
   const classes = `${className}${currentHoverClassNameString}${boundHoverClassNameString}`;
@@ -74,8 +74,8 @@ function BoundHighlight({
 BoundHighlight.propTypes = {
   /** unique group bound identifier */
   id: PropTypes.string.isRequired,
-  currentHighlightOn: PropTypes.bool,
-  oppositeHighlightOff: PropTypes.bool,
+  currentHoverHighlightOn: PropTypes.bool,
+  oppositeHoverHighlightOff: PropTypes.bool,
   /** custom className */
   className: PropTypes.string,
   /** wrapper HTML tag */
@@ -84,8 +84,8 @@ BoundHighlight.propTypes = {
 };
 
 BoundHighlight.defaultProps = {
-  currentHighlightOn: false,
-  oppositeHighlightOff: false,
+  currentHoverHighlightOn: false,
+  oppositeHoverHighlightOff: false,
   className: 'BoundHighlight',
   htmlTag: 'span',
 };

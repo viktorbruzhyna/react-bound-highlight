@@ -37,9 +37,9 @@ export function HighlighAllInBound() {
     <div>
       <p>Move mouse on hover of the list item and observe the bound with the list items below:</p>
       <ul>
-        <li><BoundHighlight currentHighlightOn id="one">One</BoundHighlight></li>
-        <li><BoundHighlight currentHighlightOn id="two">Two</BoundHighlight></li>
-        <li><BoundHighlight currentHighlightOn id="three">Three</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn id="one">One</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn id="two">Two</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn id="three">Three</BoundHighlight></li>
       </ul>
       <br />
       <br />
@@ -49,9 +49,9 @@ export function HighlighAllInBound() {
       <br />
       <p>Observe that connect works in the opposite way by default:</p>
       <ul>
-        <li><BoundHighlight currentHighlightOn id="one">Bounded One</BoundHighlight></li>
-        <li><BoundHighlight currentHighlightOn id="two">Bounded Two</BoundHighlight></li>
-        <li><BoundHighlight currentHighlightOn id="three">Bounded Three</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn id="one">Bounded One</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn id="two">Bounded Two</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn id="three">Bounded Three</BoundHighlight></li>
       </ul>
     </div>
   );
@@ -74,9 +74,9 @@ export function OneWayBound() {
       <br />
       <p>Observe that connect does not work in the opposite way:</p>
       <ul>
-        <li><BoundHighlight oppositeHighlightOff id="one">Bounded One</BoundHighlight></li>
-        <li><BoundHighlight oppositeHighlightOff id="two">Bounded Two</BoundHighlight></li>
-        <li><BoundHighlight oppositeHighlightOff id="three">Bounded Three</BoundHighlight></li>
+        <li><BoundHighlight oppositeHoverHighlightOff id="one">Bounded One</BoundHighlight></li>
+        <li><BoundHighlight oppositeHoverHighlightOff id="two">Bounded Two</BoundHighlight></li>
+        <li><BoundHighlight oppositeHoverHighlightOff id="three">Bounded Three</BoundHighlight></li>
       </ul>
     </div>
   );
@@ -98,12 +98,12 @@ export function MultipleInBound() {
       <br />
       <br />
       <ul>
-        <li><BoundHighlight oppositeHighlightOff id="one">Bounded One</BoundHighlight></li>
-        <li><BoundHighlight oppositeHighlightOff id="two">Bounded Two</BoundHighlight></li>
-        <li><BoundHighlight oppositeHighlightOff id="three">Bounded Three</BoundHighlight></li>
-        <li><BoundHighlight oppositeHighlightOff id="one">Bounded One</BoundHighlight></li>
-        <li><BoundHighlight oppositeHighlightOff id="two">Bounded Two</BoundHighlight></li>
-        <li><BoundHighlight oppositeHighlightOff id="three">Bounded Three</BoundHighlight></li>
+        <li><BoundHighlight oppositeHoverHighlightOff id="one">Bounded One</BoundHighlight></li>
+        <li><BoundHighlight oppositeHoverHighlightOff id="two">Bounded Two</BoundHighlight></li>
+        <li><BoundHighlight oppositeHoverHighlightOff id="three">Bounded Three</BoundHighlight></li>
+        <li><BoundHighlight oppositeHoverHighlightOff id="one">Bounded One</BoundHighlight></li>
+        <li><BoundHighlight oppositeHoverHighlightOff id="two">Bounded Two</BoundHighlight></li>
+        <li><BoundHighlight oppositeHoverHighlightOff id="three">Bounded Three</BoundHighlight></li>
       </ul>
     </div>
   );
