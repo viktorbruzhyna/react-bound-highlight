@@ -1,6 +1,6 @@
 {
   "name": "react-bound-highlight",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React bound highlight component",
   "keywords": ["react", "highlight", "connected-highlight", "bound-highlight"],
   "main": "dist/index.js",
