@@ -21,17 +21,17 @@ npm install react-bound-highlight --save
 
 | Prop | Description |  Type  | Default  |
 | ------------- |:-------------| -----:| -----:|
-| id`*`                     | unique group bound identifier | string |
-| currentHoverHighlight   | turn on hover highlight on current element | bool   | false
-| oppositeBoundOff        | turn off highligh on bound component | bool   | false |
+| id`*`                   | unique group bound identifier | string |
+| currentHighlightOn      | turn on hover highlight on current element | bool   | false
+| oppositeHighlightOff    | turn off current component oposite highlight | bool   | false |
 | className               | custom className              | string | 'BoundHighlight' |
 | htmlTag                 | wrapper HTML tag              | string | 'span' |
-| children`*`              | nested elements               | string, node | |
+| children`*`             | nested elements               | string, node | |
 
 
 ## Classes
 
-| ClassName | Desciprtion |
+| Class | Desciption |
 | ------------- |:-------------|
 | `BoundHighlight` | Main class name, can by override via `className` prop |
 | `{className}--currentHover` | Current hover state className |
