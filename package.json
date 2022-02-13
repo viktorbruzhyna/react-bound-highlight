@@ -14,7 +14,7 @@
     "url": "git+https://github.com/viktorbruzhyna/react-bound-highlight.git"
   },
   "author": "Viktor Bruzhyna",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/viktorbruzhyna/react-bound-highlight/issues"
   },
