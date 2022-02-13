@@ -2,6 +2,7 @@
   "name": "react-bound-highlight",
   "version": "1.0.0",
   "description": "React bound highlight component",
+  "keywords": ["react", "highlight", "connected-highlight", "bound-highlight"],
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack --mode production",

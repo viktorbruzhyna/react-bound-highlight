@@ -1,82 +1,93 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import './index.css';
+
 const createGlobalState = () => ({
   state: {},
   observers: [],
-  addObserver(observer) {
-    this.observers.push(observer);
+  addObserver(id, observer) {
+    this.observers.push({ id, observer });
   },
-  setState(key, value) {
-    this.observers.forEach((observer) => {
-      observer(key, value);
-    });
-    this.state[key] = value;
+  setState(id, value) {
+    this.observers
+      .filter(({ id: observerId }) => id === observerId)
+      .forEach(({ observer }) => {
+        observer(value);
+      });
   },
 });
 
-// purpose: highlight onother element one current element is on hover/focus
-// @todo:
-// 1: highlight both ✅
-// 2: highlight linked element on hover ✅
-// 3: highlight linked element on focus
-// 4: one direction highlight ✅
-// 5: custom className for wrappers ✅
-
 function BoundHighlight({
-  id, children, shouldCurrentHighlight, shouldBoundHighlight, className,
+  id,
+  children,
+  currentHoverHighlight,
+  oppositeBoundOff,
+  className,
+  htmlTag: Tag,
 }) {
   const [highlight, setHighlight] = useState(false);
   const [boundHighlight, setBoundHightlight] = useState(false);
 
   useEffect(() => {
-    if (!window.farlight) {
-      window.farlight = createGlobalState();
+    if (!window.boundhighlight) {
+      window.boundhighlight = createGlobalState();
     }
-    window.farlight.addObserver((key, value) => {
-      if (id === key) {
-        setBoundHightlight(value);
-      }
-    });
-  }, []);
 
-  const shouldHighlight = (highlight && shouldCurrentHighlight)
-    || (boundHighlight && shouldBoundHighlight);
+    window.boundhighlight.addObserver(id, setBoundHightlight);
+
+    return () => {
+      window.boundhighlight = undefined;
+    };
+  }, []);
 
   const onMouseEnter = () => {
     setHighlight(true);
-    window.farlight.setState(id, true);
+    if (!oppositeBoundOff) {
+      window.boundhighlight.setState(id, true);
+    }
   };
 
   const onMouseLeave = () => {
     setHighlight(false);
-    window.farlight.setState(id, false);
+    if (!oppositeBoundOff) {
+      window.boundhighlight.setState(id, false);
+    }
   };
 
+  const currentHoverClassNameString = currentHoverHighlight && highlight ? ` ${className}--currentHover` : '';
+  const boundHoverClassNameString = boundHighlight && !highlight ? ` ${className}--boundHover` : '';
+
+  const classes = `${className}${currentHoverClassNameString}${boundHoverClassNameString}`;
+
   return (
-    <div
-      className={`BoundHighlight${className && ` ${className}`}`}
-      style={{ outline: shouldHighlight && 'auto' }}
+    <Tag
+      className={classes}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
       {children}
-    </div>
+    </Tag>
   );
 }
 
 BoundHighlight.propTypes = {
+  /** unique group bound identifier */
   id: PropTypes.string.isRequired,
-  shouldCurrentHighlight: PropTypes.bool,
-  shouldBoundHighlight: PropTypes.bool,
+  currentHoverHighlight: PropTypes.bool,
+  oppositeBoundOff: PropTypes.bool,
+  /** custom className */
   className: PropTypes.string,
+  /** wrapper HTML tag */
+  htmlTag: PropTypes.string,
   children: PropTypes.oneOf([PropTypes.node, PropTypes.string]).isRequired,
 };
 
 BoundHighlight.defaultProps = {
-  shouldCurrentHighlight: false,
-  shouldBoundHighlight: true,
-  className: '',
+  currentHoverHighlight: false,
+  oppositeBoundOff: false,
+  className: 'BoundHighlight',
+  htmlTag: 'span',
 };
 
 export default BoundHighlight;
