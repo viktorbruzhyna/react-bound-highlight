@@ -1,0 +1,6 @@
+.CustomClassName--currentHover {
+  text-decoration: underline;
+}
+.CustomClassName--boundHover {
+  background-color: aqua;
+}
