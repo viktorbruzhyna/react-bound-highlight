@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { useState } from 'react';
 import BoundHighlight from '../components/BoundHighlight';
 
 import './custom-styles.css';
@@ -131,6 +132,54 @@ export function CustomStyles() {
         <li><BoundHighlight currentHoverHighlightOn className="CustomClassName" id="two">Bounded Two</BoundHighlight></li>
         <li><BoundHighlight currentHoverHighlightOn className="CustomClassName" id="three">Bounded Three</BoundHighlight></li>
       </ul>
+    </div>
+  );
+}
+
+export function SideBySideEditor() {
+  const [picture, setPicture] = useState('https://place-hold.it/200x100');
+  const [title, setTitle] = useState('Lorem ipsum');
+  const [subtitle, setSubtitle] = useState('Lorem ipsum dolor sit amet');
+  const [description, setDescription] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+  return (
+    <div className="CustomClassName--flex">
+      <div>
+        <form>
+          <BoundHighlight id="picture" htmlTag="div">
+            <div><label htmlFor="picture">Picture</label></div>
+            <input name="picture" id="picture" value={picture} onChange={(e) => { setPicture(e.target.value); }} />
+          </BoundHighlight>
+          <BoundHighlight id="title" htmlTag="div">
+            <div><label htmlFor="title">Title</label></div>
+            <input name="title" id="title" value={title} onChange={(e) => { setTitle(e.target.value); }} />
+          </BoundHighlight>
+          <BoundHighlight id="subtitle" htmlTag="div">
+            <div><label htmlFor="subtitle">Subtitle</label></div>
+            <input name="subtitle" id="subtitle" value={subtitle} onChange={(e) => { setSubtitle(e.target.value); }} />
+          </BoundHighlight>
+          <BoundHighlight id="description" htmlTag="div">
+            <div><label htmlFor="description">Description</label></div>
+            <textarea name="description" id="description" value={description} onChange={(e) => { setDescription(e.target.value); }} />
+          </BoundHighlight>
+        </form>
+      </div>
+      <div className="CustomClassName--verticalDivider" />
+      <div className="CustomClassName--alignCenter">
+        <div className="CustomClassName--card">
+          <BoundHighlight id="picture">
+            <img src={picture} alt="side by side" />
+          </BoundHighlight>
+          <BoundHighlight id="title">
+            <h1>{title}</h1>
+          </BoundHighlight>
+          <BoundHighlight id="subtitle">
+            <h6>{subtitle}</h6>
+          </BoundHighlight>
+          <BoundHighlight id="description">
+            <div>{description}</div>
+          </BoundHighlight>
+        </div>
+      </div>
     </div>
   );
 }

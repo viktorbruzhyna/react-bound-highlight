@@ -4,3 +4,24 @@
 .CustomClassName--boundHover {
   background-color: aqua;
 }
+.CustomClassName--flex {
+  display: flex;
+}
+.CustomClassName--card {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+.CustomClassName--paddingBottom {
+  padding-bottom: 10px;
+}
+.CustomClassName--alignCenter {
+  text-align: center;
+}
+.CustomClassName--verticalDivider {
+  width: 1px;
+  background-color: #ccc;
+  height: 200px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
