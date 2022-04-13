@@ -7,10 +7,13 @@
 .CustomClassName--flex {
   display: flex;
 }
+.CustomClassName--font {
+  font-family: Arial, Helvetica, sans-serif;
+}
 .CustomClassName--card {
   padding: 10px;
   border: 1px solid #ccc;
-  width: 200px;
+  width: 250px;
 }
 .CustomClassName--paddingBottom {
   padding-bottom: 10px;
@@ -21,7 +24,7 @@
 .CustomClassName--verticalDivider {
   width: 1px;
   background-color: #ccc;
-  height: 200px;
+  height: 300px;
   margin-left: 50px;
   margin-right: 50px;
 }
