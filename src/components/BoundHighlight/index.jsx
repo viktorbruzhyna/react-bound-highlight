@@ -80,7 +80,7 @@ BoundHighlight.propTypes = {
   className: PropTypes.string,
   /** wrapper HTML tag */
   htmlTag: PropTypes.string,
-  children: PropTypes.oneOf([PropTypes.node, PropTypes.string]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 };
 
 BoundHighlight.defaultProps = {
