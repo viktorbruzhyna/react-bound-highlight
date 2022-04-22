@@ -1,22 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import createStatesConnector from './createStatesConnector';
 
 import './index.css';
-
-const createGlobalState = () => ({
-  state: {},
-  observers: [],
-  addObserver(id, observer) {
-    this.observers.push({ id, observer });
-  },
-  setState(id, value) {
-    this.observers
-      .filter(({ id: observerId }) => id === observerId)
-      .forEach(({ observer }) => {
-        observer(value);
-      });
-  },
-});
 
 function BoundHighlight({
   id,
@@ -31,7 +17,7 @@ function BoundHighlight({
 
   useEffect(() => {
     if (!window.boundhighlight) {
-      window.boundhighlight = createGlobalState();
+      window.boundhighlight = createStatesConnector();
     }
 
     window.boundhighlight.addObserver(id, setBoundHightlight);
@@ -44,14 +30,14 @@ function BoundHighlight({
   const onMouseEnter = () => {
     setHighlight(true);
     if (!oppositeHoverHighlightOff) {
-      window.boundhighlight.setState(id, true);
+      window.boundhighlight.setBoundedState(id, true);
     }
   };
 
   const onMouseLeave = () => {
     setHighlight(false);
     if (!oppositeHoverHighlightOff) {
-      window.boundhighlight.setState(id, false);
+      window.boundhighlight.setBoundedState(id, false);
     }
   };
 
