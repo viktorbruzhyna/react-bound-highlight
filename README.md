@@ -43,6 +43,13 @@ npm install react-bound-highlight --save
 ```
 
 
+## Run test
+
+```
+npm run test
+```
+
+
 ## Props
 
 | Prop | Description |  Type  | Default  |
