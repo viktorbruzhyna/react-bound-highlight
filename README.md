@@ -95,5 +95,19 @@ Review all examples on storybook:
 npm run storybook
 ```
 
+## Linter
+
+Run linter:
+
+```
+npm run lint
+```
+
+Fix formatting issues:
+
+```
+npm run lint:fix
+```
+
 ## License
 MIT
