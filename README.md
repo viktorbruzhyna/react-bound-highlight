@@ -14,27 +14,27 @@ React component for connecting elements hover states
 
 Two directions bound:
 
-<img src="public/two-way-bound.gif" />
+<img src="https://github.com/viktorbruzhyna/react-bound-highlight/raw/main/public/two-way-bound.gif" />
 
 Two directions bound with current element highlight ON:
 
-<img src="public/two-way-bound-2.gif" />
+<img src="https://github.com/viktorbruzhyna/react-bound-highlight/raw/main/public/two-way-bound-2.gif" />
 
 Single direction bound:
 
-<img src="public/one-way-bound.gif" />
+<img src="https://github.com/viktorbruzhyna/react-bound-highlight/raw/main/public/one-way-bound.gif" />
 
 Multiple elements in bound:
 
-<img src="public/multiple-in-bound.gif" />
+<img src="https://github.com/viktorbruzhyna/react-bound-highlight/raw/main/public/multiple-in-bound.gif" />
 
 Custom highlight styles:
 
-<img src="public/custom-styles.gif" />
+<img src="https://github.com/viktorbruzhyna/react-bound-highlight/raw/main/public/custom-styles.gif" />
 
 Can be used for building side by side editor like this:
 
-<img src="public/side-by-side-editor.gif" />
+<img src="https://github.com/viktorbruzhyna/react-bound-highlight/raw/main/public/side-by-side-editor.gif" />
 
 
 ## Install
