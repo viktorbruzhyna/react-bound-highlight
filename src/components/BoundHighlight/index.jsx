@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import createStatesConnector from './createStatesConnector';
 
-import './index.css';
-
 function BoundHighlight({
   id,
   children,
@@ -43,11 +41,13 @@ function BoundHighlight({
 
   const currentHoverClassNameString = currentHoverHighlightOn && highlight ? ` ${className}--currentHover` : '';
   const boundHoverClassNameString = boundHighlight && !highlight ? ` ${className}--boundHover` : '';
+  const shouldOutline = (currentHoverHighlightOn && highlight) || (boundHighlight && !highlight);
 
   const classes = `${className}${currentHoverClassNameString}${boundHoverClassNameString}`;
 
   return (
     <Tag
+      style={{ outline: shouldOutline ? 'auto' : 'none' }}
       className={classes}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

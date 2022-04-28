@@ -3,6 +3,7 @@
 React component for connecting elements hover states
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/viktorbruzhyna/react-bound-highlight/jest-tests-and-lint)
+![npm bundle size](https://img.shields.io/bundlephobia/min/react-bound-highlight)
 
 ## Features:
 - Highlight one component when hover on another
