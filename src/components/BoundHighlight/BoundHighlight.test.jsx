@@ -107,6 +107,29 @@ describe('BoundHighlight', () => {
       expect(getByText('Content')).not.toHaveClass(boundHoverClass);
       expect(getByText('Bounded Content')).not.toHaveClass(boundHoverClass);
     });
+
+    it('should use default style', () => {
+      const { getByText } = setup();
+
+      expect(getByText('Bounded Content')).not.toHaveStyle({ outline: 'auto' });
+      fireEvent.mouseOver(getByText('Content'));
+      expect(getByText('Bounded Content')).toHaveStyle({ outline: 'auto' });
+      fireEvent.mouseLeave(getByText('Content'));
+      expect(getByText('Bounded Content')).not.toHaveStyle({ outline: 'auto' });
+    });
+
+    it('should turn off default style', () => {
+      const { getByText } = setup(
+        { defaultStyleOff: true },
+        { defaultStyleOff: true },
+      );
+
+      expect(getByText('Bounded Content')).not.toHaveStyle({ outline: 'auto' });
+      fireEvent.mouseOver(getByText('Content'));
+      expect(getByText('Bounded Content')).not.toHaveStyle({ outline: 'auto' });
+      fireEvent.mouseLeave(getByText('Content'));
+      expect(getByText('Bounded Content')).not.toHaveStyle({ outline: 'auto' });
+    });
   });
 
   describe('multiple bounded elements', () => {

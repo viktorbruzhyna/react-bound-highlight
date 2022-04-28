@@ -8,6 +8,7 @@ function BoundHighlight({
   currentHoverHighlightOn,
   oppositeHoverHighlightOff,
   className,
+  defaultStyleOff,
   htmlTag: Tag,
 }) {
   const [highlight, setHighlight] = useState(false);
@@ -41,13 +42,14 @@ function BoundHighlight({
 
   const currentHoverClassNameString = currentHoverHighlightOn && highlight ? ` ${className}--currentHover` : '';
   const boundHoverClassNameString = boundHighlight && !highlight ? ` ${className}--boundHover` : '';
-  const shouldOutline = (currentHoverHighlightOn && highlight) || (boundHighlight && !highlight);
+  const shouldOutline = !defaultStyleOff
+    && ((currentHoverHighlightOn && highlight) || (boundHighlight && !highlight));
 
   const classes = `${className}${currentHoverClassNameString}${boundHoverClassNameString}`;
 
   return (
     <Tag
-      style={{ outline: shouldOutline ? 'auto' : 'none' }}
+      style={shouldOutline ? { outline: 'auto' } : {}}
       className={classes}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -62,6 +64,7 @@ BoundHighlight.propTypes = {
   id: PropTypes.string.isRequired,
   currentHoverHighlightOn: PropTypes.bool,
   oppositeHoverHighlightOff: PropTypes.bool,
+  defaultStyleOff: PropTypes.bool,
   /** custom className */
   className: PropTypes.string,
   /** wrapper HTML tag */
@@ -72,6 +75,7 @@ BoundHighlight.propTypes = {
 BoundHighlight.defaultProps = {
   currentHoverHighlightOn: false,
   oppositeHoverHighlightOff: false,
+  defaultStyleOff: false,
   className: 'BoundHighlight',
   htmlTag: 'span',
 };

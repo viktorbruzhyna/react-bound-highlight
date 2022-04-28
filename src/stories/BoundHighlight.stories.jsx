@@ -117,9 +117,9 @@ export function CustomStyles() {
     <div>
       <p>Move mouse on hover of the list item and observe the bound with the list items below:</p>
       <ul>
-        <li><BoundHighlight currentHoverHighlightOn className="CustomClassName" id="one">One</BoundHighlight></li>
-        <li><BoundHighlight currentHoverHighlightOn className="CustomClassName" id="two">Two</BoundHighlight></li>
-        <li><BoundHighlight currentHoverHighlightOn className="CustomClassName" id="three">Three</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn defaultStyleOff className="CustomClassName" id="one">One</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn defaultStyleOff className="CustomClassName" id="two">Two</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn defaultStyleOff className="CustomClassName" id="three">Three</BoundHighlight></li>
       </ul>
       <br />
       <br />
@@ -128,9 +128,9 @@ export function CustomStyles() {
       <br />
       <br />
       <ul>
-        <li><BoundHighlight currentHoverHighlightOn className="CustomClassName" id="one">Bounded One</BoundHighlight></li>
-        <li><BoundHighlight currentHoverHighlightOn className="CustomClassName" id="two">Bounded Two</BoundHighlight></li>
-        <li><BoundHighlight currentHoverHighlightOn className="CustomClassName" id="three">Bounded Three</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn defaultStyleOff className="CustomClassName" id="one">Bounded One</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn defaultStyleOff className="CustomClassName" id="two">Bounded Two</BoundHighlight></li>
+        <li><BoundHighlight currentHoverHighlightOn defaultStyleOff className="CustomClassName" id="three">Bounded Three</BoundHighlight></li>
       </ul>
     </div>
   );

@@ -59,12 +59,15 @@ npm run test
 | id`*`                   | unique group bound identifier | string |
 | currentHoverHighlightOn      | turn on hover highlight on current element | bool   | false
 | oppositeHoverHighlightOff    | turn off current component oposite highlight | bool   | false |
+| defaultStyleOff         | turn off default style for highligting | bool | false |
 | className               | custom className              | string | 'BoundHighlight' |
 | htmlTag                 | wrapper HTML tag              | string | 'span' |
 | children`*`             | nested elements               | string, node | |
 
 
 ## Classes
+
+Use classes to override highlighting styles. Set `defaultStyleOff=true` prop to turn off default style.
 
 | Class | Desciption |
 | ------------- |:-------------|
