@@ -3,6 +3,7 @@
 React component for connecting elements hover states
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/viktorbruzhyna/react-bound-highlight/jest-tests-and-lint)
+![npm bundle size](https://img.shields.io/bundlephobia/min/react-bound-highlight)
 
 ## Features:
 - Highlight one component when hover on another
@@ -58,12 +59,15 @@ npm run test
 | id`*`                   | unique group bound identifier | string |
 | currentHoverHighlightOn      | turn on hover highlight on current element | bool   | false
 | oppositeHoverHighlightOff    | turn off current component oposite highlight | bool   | false |
+| defaultStyleOff         | turn off default style for highligting | bool | false |
 | className               | custom className              | string | 'BoundHighlight' |
 | htmlTag                 | wrapper HTML tag              | string | 'span' |
 | children`*`             | nested elements               | string, node | |
 
 
 ## Classes
+
+Use classes to override highlighting styles. Set `defaultStyleOff=true` prop to turn off default style.
 
 | Class | Desciption |
 | ------------- |:-------------|

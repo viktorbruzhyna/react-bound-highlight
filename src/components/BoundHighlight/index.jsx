@@ -1,8 +1,7 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import createStatesConnector from './createStatesConnector';
-
-import './index.css';
 
 function BoundHighlight({
   id,
@@ -10,6 +9,7 @@ function BoundHighlight({
   currentHoverHighlightOn,
   oppositeHoverHighlightOff,
   className,
+  defaultStyleOff,
   htmlTag: Tag,
 }) {
   const [highlight, setHighlight] = useState(false);
@@ -41,16 +41,21 @@ function BoundHighlight({
     }
   };
 
-  const currentHoverClassNameString = currentHoverHighlightOn && highlight ? ` ${className}--currentHover` : '';
-  const boundHoverClassNameString = boundHighlight && !highlight ? ` ${className}--boundHover` : '';
+  const shouldCurrentHighlight = currentHoverHighlightOn && highlight;
+  const shouldBoundedtHighlight = boundHighlight && !highlight;
+  const shouldOutline = !defaultStyleOff && (shouldCurrentHighlight || shouldBoundedtHighlight);
+  const currentHoverClassName = shouldCurrentHighlight ? ` ${className}--currentHover` : '';
+  const boundHoverClassName = shouldBoundedtHighlight ? ` ${className}--boundHover` : '';
 
-  const classes = `${className}${currentHoverClassNameString}${boundHoverClassNameString}`;
+  const classes = `${className}${currentHoverClassName}${boundHoverClassName}`;
+  const restProps = shouldOutline ? { style: { outline: 'auto' } } : {};
 
   return (
     <Tag
       className={classes}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      {...restProps}
     >
       {children}
     </Tag>
@@ -62,6 +67,7 @@ BoundHighlight.propTypes = {
   id: PropTypes.string.isRequired,
   currentHoverHighlightOn: PropTypes.bool,
   oppositeHoverHighlightOff: PropTypes.bool,
+  defaultStyleOff: PropTypes.bool,
   /** custom className */
   className: PropTypes.string,
   /** wrapper HTML tag */
@@ -72,6 +78,7 @@ BoundHighlight.propTypes = {
 BoundHighlight.defaultProps = {
   currentHoverHighlightOn: false,
   oppositeHoverHighlightOff: false,
+  defaultStyleOff: false,
   className: 'BoundHighlight',
   htmlTag: 'span',
 };
