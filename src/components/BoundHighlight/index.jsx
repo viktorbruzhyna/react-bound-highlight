@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import createStatesConnector from './createStatesConnector';
@@ -40,19 +41,21 @@ function BoundHighlight({
     }
   };
 
-  const currentHoverClassNameString = currentHoverHighlightOn && highlight ? ` ${className}--currentHover` : '';
-  const boundHoverClassNameString = boundHighlight && !highlight ? ` ${className}--boundHover` : '';
-  const shouldOutline = !defaultStyleOff
-    && ((currentHoverHighlightOn && highlight) || (boundHighlight && !highlight));
+  const shouldCurrentHighlight = currentHoverHighlightOn && highlight;
+  const shouldBoundedtHighlight = boundHighlight && !highlight;
+  const shouldOutline = !defaultStyleOff && (shouldCurrentHighlight || shouldBoundedtHighlight);
+  const currentHoverClassName = shouldCurrentHighlight ? ` ${className}--currentHover` : '';
+  const boundHoverClassName = shouldBoundedtHighlight ? ` ${className}--boundHover` : '';
 
-  const classes = `${className}${currentHoverClassNameString}${boundHoverClassNameString}`;
+  const classes = `${className}${currentHoverClassName}${boundHoverClassName}`;
+  const restProps = shouldOutline ? { style: { outline: 'auto' } } : {};
 
   return (
     <Tag
-      style={shouldOutline ? { outline: 'auto' } : {}}
       className={classes}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      {...restProps}
     >
       {children}
     </Tag>
