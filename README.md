@@ -1,13 +1,14 @@
 # React bound highlight
 
+
 React component for connecting elements hover states
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/viktorbruzhyna/react-bound-highlight/jest-tests-and-lint)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/react-bound-highlight)
 
 ## Features:
-- Highlight one component when hover on another
-- Highlight all connected components
+- Highlight other components when a component is hovered
+- Custom styles
 - Lightweight
 - No dependencies
 
@@ -44,13 +45,21 @@ Can be used for building side by side editor like this:
 npm install react-bound-highlight --save
 ```
 
-
-## Run test
+## Basic usage
+Wrap needed elements and specify unique id for connected components group:
 
 ```
-npm run test
+import BoundHighlight from 'react-bound-highlight';
+...
+    <div>
+      <BoundHighlight id="group1">Group 1</BoundHighlight>
+      <BoundHighlight id="group2">Group 2</BoundHighlight>
+      ...
+      <BoundHighlight id="group1">Group 1</BoundHighlight>
+      <BoundHighlight id="group2">Group 2</BoundHighlight>
+    </div>
+...
 ```
-
 
 ## Props
 
@@ -76,22 +85,6 @@ Use classes to override highlighting styles. Set `defaultStyleOff=true` prop to 
 | `{className}--boundHover` | Bound hover state className |
 
 
-## Basic usage
-Wrap needed elements and specify unique id for connected components group:
-
-```
-import BoundHighlight from 'react-bound-highlight';
-...
-    <div>
-      <BoundHighlight id="group1">Group 1</BoundHighlight>
-      <BoundHighlight id="group2">Group 2</BoundHighlight>
-      ...
-      <BoundHighlight id="group1">Group 1</BoundHighlight>
-      <BoundHighlight id="group2">Group 2</BoundHighlight>
-    </div>
-...
-```
-
 ## Storybook
 
 Review all examples on storybook:
@@ -99,6 +92,13 @@ Review all examples on storybook:
 ```
 npm run storybook
 ```
+
+## Run tests
+
+```
+npm run test
+```
+
 
 ## Linter
 
