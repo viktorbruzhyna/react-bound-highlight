@@ -1,10 +1,12 @@
 {
   "name": "react-bound-highlight",
-  "version": "1.1.0",
-  "description": "React bound highlight component",
+  "version": "1.1.1",
+  "description": "Highlight other components when a component is hovered",
   "keywords": [
     "react",
     "highlight",
+    "hover",
+    "mouseover",
     "connected-highlight",
     "bound-highlight"
   ],
