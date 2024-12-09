@@ -7,7 +7,7 @@ React component for connecting elements hover states
 ![npm bundle size](https://img.shields.io/bundlephobia/min/react-bound-highlight)
 
 ## Features:
-- Highlight other components when a component is hovered
+- Highlight other component(s) when a component is hovered
 - Custom styles
 - Lightweight
 - No dependencies
